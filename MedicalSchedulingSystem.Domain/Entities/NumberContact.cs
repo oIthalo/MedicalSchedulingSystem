@@ -4,12 +4,12 @@ namespace MedicalSchedulingSystem.Domain.Entities
 {
     public class NumberContact : Contact
     {
-        public NumberContact(Number number, Name name)
+        public NumberContact(ContactNumber number, Name name)
             : base (name)
         {
             Number = number;
         }
 
-        public Number Number { get; private set; }
+        public ContactNumber Number { get; private set; }
     }
 }

@@ -1,10 +1,19 @@
-﻿namespace MedicalSchedulingSystem.Domain.ValueObjects
-{
-    public class BirthDate
-    {
-        public BirthDate(DateTime birthDate_)
-            =>   BirthDate_ = birthDate_;
+﻿using Flunt.Validations;
+using MedicalSchedulingSystem.Shared.ValueObjects;
 
-        public DateTime BirthDate_ { get; private set; }
+namespace MedicalSchedulingSystem.Domain.ValueObjects
+{
+    public class BirthDate : ValueObject
+    {
+        public BirthDate(DateTime birthDate)
+        {
+            Date = birthDate;
+
+            AddNotifications(new Contract<BirthDate>()
+                .Requires()
+                .IsLowerThan(Date, DateTime.Now, "BirthDate.Date", "A data de nascimento deve ser anterior a data atual"));
+        }
+
+        public DateTime Date { get; private set; }
     }
 }

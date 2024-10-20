@@ -1,6 +1,8 @@
-﻿namespace MedicalSchedulingSystem.Shared.Entities
+﻿using Flunt.Notifications;
+
+namespace MedicalSchedulingSystem.Shared.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : Notifiable<Notification>
     {
         public Entity()
         {

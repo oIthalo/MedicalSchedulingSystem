@@ -1,6 +1,8 @@
-﻿namespace MedicalSchedulingSystem.Shared.ValueObjects
+﻿using Flunt.Notifications;
+
+namespace MedicalSchedulingSystem.Shared.ValueObjects
 {
-    public abstract class ValueObject
+    public abstract class ValueObject : Notifiable<Notification>
     {
 
     }
