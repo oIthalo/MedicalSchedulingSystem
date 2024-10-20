@@ -8,6 +8,8 @@ namespace MedicalSchedulingSystem.Domain.Entities
             : base(name) 
         {
             Email = email;
+
+            AddNotifications(email, name);
         }
 
         public Email Email { get; private set; }

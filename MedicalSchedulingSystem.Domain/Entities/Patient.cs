@@ -14,6 +14,8 @@ namespace MedicalSchedulingSystem.Domain.Entities
             Contact = contact;
             Document = document;
             _appointments = new List<Appointment>();
+
+            AddNotifications(name, birthDate, contact, document);
         }
 
         public Name Name { get; private set; }

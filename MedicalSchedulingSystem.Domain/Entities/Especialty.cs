@@ -8,6 +8,8 @@ namespace MedicalSchedulingSystem.Domain.Entities
         public Especialty(Name name)
         {
             Name = name;
+
+            AddNotifications(name);
         }
 
         public Name Name { get; private set; }

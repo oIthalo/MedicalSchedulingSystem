@@ -8,6 +8,8 @@ namespace MedicalSchedulingSystem.Domain.Entities
             : base (name)
         {
             Number = number;
+
+            AddNotifications(name);
         }
 
         public ContactNumber Number { get; private set; }
