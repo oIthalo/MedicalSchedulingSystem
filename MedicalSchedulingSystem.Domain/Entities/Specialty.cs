@@ -3,9 +3,9 @@ using MedicalSchedulingSystem.Shared.Entities;
 
 namespace MedicalSchedulingSystem.Domain.Entities;
 
-public class Especialty : Entity
+public class Specialty : Entity
 {
-    public Especialty(Name name)
+    public Specialty(Name name)
     {
         Name = name;
 
