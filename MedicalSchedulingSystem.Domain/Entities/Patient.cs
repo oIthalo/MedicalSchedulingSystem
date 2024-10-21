@@ -1,27 +1,26 @@
 ﻿using MedicalSchedulingSystem.Domain.ValueObjects;
 using MedicalSchedulingSystem.Shared.Entities;
 
-namespace MedicalSchedulingSystem.Domain.Entities
+namespace MedicalSchedulingSystem.Domain.Entities;
+
+public class Patient : Entity
 {
-    public class Patient : Entity
+    private readonly IList<Appointment> _appointments;
+
+    public Patient(Name name, BirthDate birthDate, Contact contact, Document document, IList<Appointment> appointments)
     {
-        private readonly IList<Appointment> _appointments;
+        Name = name;
+        BirthDate = birthDate;
+        Contact = contact;
+        Document = document;
+        _appointments = new List<Appointment>();
 
-        public Patient(Name name, BirthDate birthDate, Contact contact, Document document, IList<Appointment> appointments)
-        {
-            Name = name;
-            BirthDate = birthDate;
-            Contact = contact;
-            Document = document;
-            _appointments = new List<Appointment>();
-
-            AddNotifications(name, birthDate, contact, document);
-        }
-
-        public Name Name { get; private set; }
-        public BirthDate BirthDate { get; private set; }
-        public Contact Contact { get; private set; }
-        public Document Document { get; private set; }
-        public IReadOnlyCollection<Appointment> Appointments { get { return _appointments.ToArray(); } }
+        AddNotifications(name, birthDate, contact, document);
     }
+
+    public Name Name { get; private set; }
+    public BirthDate BirthDate { get; private set; }
+    public Contact Contact { get; private set; }
+    public Document Document { get; private set; }
+    public IReadOnlyCollection<Appointment> Appointments { get { return _appointments.ToArray(); } }
 }

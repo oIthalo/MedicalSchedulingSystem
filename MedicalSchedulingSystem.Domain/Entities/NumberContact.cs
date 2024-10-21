@@ -1,17 +1,16 @@
 ﻿using MedicalSchedulingSystem.Domain.ValueObjects;
 
-namespace MedicalSchedulingSystem.Domain.Entities
+namespace MedicalSchedulingSystem.Domain.Entities;
+
+public class NumberContact : Contact
 {
-    public class NumberContact : Contact
+    public NumberContact(ContactNumber number, Name name)
+        : base (name)
     {
-        public NumberContact(ContactNumber number, Name name)
-            : base (name)
-        {
-            Number = number;
+        Number = number;
 
-            AddNotifications(name);
-        }
-
-        public ContactNumber Number { get; private set; }
+        AddNotifications(name);
     }
+
+    public ContactNumber Number { get; private set; }
 }
